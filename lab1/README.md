@@ -13,7 +13,9 @@ First, go through the icestick tutorial and make sure you get the blink program 
 Next you will create a verilog implementation of a 16-bit Johnson Counter and a Decoder that will produce a 5-bit binary integer.
 
 ####Johnson Counter:
-An N-bit Johnson Counter is a simple circular shift-register circuit that cycles through 2N unique states. You create it by connecting the inverted output of the last bit into the input of the first bit. Check the png for an example 4-bit johnson counter. This will correctly cycle through 2N states, but these states are not encoded as the binary integer that we want. 
+An N-bit Johnson Counter is a simple circular shift-register circuit that cycles through 2N unique states. You create it by connecting the inverted output of the last bit into the input of the first bit. 
+![Check out jcounter4bit.png for an example](./jcounter4bit.png)  
+This 4-bit Johnson Counter will correctly cycle through 2N states, but these states are not encoded as the binary integer that we want. 
 
 ####Decoder:
 This decoder will take in the N bits of the Johnson Counter and produce a binary integer (of bitsize (log2(2N)).
