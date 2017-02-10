@@ -89,6 +89,8 @@ class Kind(type):
         type.__init__( cls, name, bases, dct)
     def __eq__(cls, rhs):
         return not (cls != rhs)
+    def __hash__(cls):
+        return id(cls)
     def __ne__(cls, rhs):
         return not (cls == rhs)
     def __repr__(cls):

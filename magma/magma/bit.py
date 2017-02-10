@@ -78,6 +78,7 @@ class BitType(Type):
 
 
 class BitKind(Kind):
+    __hash__ = Kind.__hash__
 
     def __init__(cls, name, bases, dct):
         Kind.__init__( cls, name, bases, dct)

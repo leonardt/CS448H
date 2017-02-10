@@ -151,6 +151,7 @@ class ArrayType(Type):
         return array(*ts)
 
 class ArrayKind(Kind):
+    __hash__ = Kind.__hash__
     def __init__(cls, name, bases, dct):
         Kind.__init__( cls, name, bases, dct)
 

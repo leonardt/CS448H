@@ -4,6 +4,7 @@ Add magma to your PYTHONPATH
 
 ```
 export PYTHONPATH=$PYTHONPATH:<YOUR_PATH>/CS448H/magma
+pip install six  # For python2/3 compatability
 ```
 
 Magma uses a build system based on `fabricate`.
