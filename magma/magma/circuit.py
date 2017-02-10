@@ -1,5 +1,6 @@
 from magma.interface import *
 from magma.wire import *
+from six import with_metaclass
 
 __all__  = ['CircuitType']
 
@@ -62,8 +63,7 @@ class CircuitKind(type):
 #
 # Abstract base class for circuits
 #
-class _CircuitType(object):
-    __metaclass__ = CircuitKind
+class _CircuitType(with_metaclass(CircuitKind, object)):
 
     def __init__(self, *largs, **kwargs):
         self.largs = largs
@@ -296,8 +296,8 @@ class DefineCircuitKind(CircuitKind):
             elif orientation == 'horizontal':
                 x += dx
 
-class Circuit(CircuitType):
-    __metaclass__ = DefineCircuitKind
+class Circuit(with_metaclass(DefineCircuitKind, CircuitType)):
+    pass
 
 
 # DefineCircuit Factory
