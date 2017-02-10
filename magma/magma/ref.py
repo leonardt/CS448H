@@ -1,4 +1,7 @@
 import sys
+if sys.version_info > (3,):
+    long = int  # long remove in py3+
+
 __all__ = ['AnonRef', 'InstRef', 'DefnRef', 'ArrayRef', 'TupleRef']
 
 class Ref:
@@ -23,8 +26,6 @@ class InstRef(Ref):
 
     def qualifiedname(self, sep='.'):
         name = self.name
-        if sys.version_info > (3,):
-            long = int  # long remove in py3+
         if isinstance(self.name, (int, long)):
             # Hack, Hack, Hack
             if sep == '.':
