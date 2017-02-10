@@ -1,6 +1,4 @@
 import sys
-if sys.version_info > (3,):
-    long = int  # long remove in py3+
 
 __all__ = ['AnonRef', 'InstRef', 'DefnRef', 'ArrayRef', 'TupleRef']
 
@@ -26,7 +24,11 @@ class InstRef(Ref):
 
     def qualifiedname(self, sep='.'):
         name = self.name
-        if isinstance(self.name, (int, long)):
+        if sys.version_info > (3,):
+            _typs = (int, )  # long removed in python3
+        else:
+            _typs = (int, long)
+        if isinstance(self.name, _typs):
             # Hack, Hack, Hack
             if sep == '.':
                 return str(self.inst) + '[%d]' % self.name
